@@ -1,7 +1,8 @@
 // Update with your config settings.
 require("dotenv").config();
 
-const {pgConnection} = require('./secretToken')
+const pgConnection = process.env.DATABASE_URL || "postgresql://postgres@localhost/airbnb";
+    
 module.exports = {
 
   development: {
