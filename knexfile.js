@@ -1,26 +1,26 @@
 // Update with your config settings.
 require("dotenv").config();
 
-const pgConnection = process.env.DATABASE_URL || "postgresql://postgres@localhost/airbnb";
-    
-module.exports = {
+const pgConnection =
+  process.env.DATABASE_URL || "postgresql://postgres@localhost/airbnb";
 
+module.exports = {
   development: {
-    client: 'sqlite3',
+    client: "sqlite3",
     connection: {
-      filename: './data/airbnb.db3'
+      filename: "./data/airbnb.db3",
     },
     useNullAsDefault: true,
     pool: {
       afterCreate: (conn, done) => {
-          conn.run("PRAGMA foreign_keys = ON", done);
+        conn.run("PRAGMA foreign_keys = ON", done);
       },
     },
     migrations: {
-      directory: './data/migrations'
+      directory: "./data/migrations",
     },
     seeds: {
-      directory: './data/seeds'
+      directory: "./data/seeds",
     },
   },
 
@@ -45,14 +45,13 @@ module.exports = {
     connection: pgConnection,
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      directory: './data/migrations'
+      directory: "./data/migrations",
     },
     seeds: {
-      directory: './data/seeds'
+      directory: "./data/seeds",
     },
-  }
-
+  },
 };
