@@ -1,7 +1,5 @@
 // Update with your config settings.
-require("dotenv").config();
 
-const pgConnection = process.env.DATABASE_URL || "postgresql://postgres@localhost/api/auth";
 module.exports = {
 
   development: {
@@ -41,7 +39,11 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    connection: pgConnection,
+    connection: {
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
+    },
     pool: {
       min: 2,
       max: 10
